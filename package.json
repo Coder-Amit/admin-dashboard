@@ -1,0 +1,49 @@
+{
+  "name": "admin-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fullcalendar/core": "^6.1.4",
+    "@fullcalendar/daygrid": "^6.1.4",
+    "@fullcalendar/list": "^6.1.4",
+    "@fullcalendar/timegrid": "^6.1.4",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.11",
+    "@mui/x-data-grid": "^5.17.25",
+    "cra-template": "1.2.0",
+    "d3": "^7.8.2",
+    "formik": "^2.2.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-pro-sidebar": "^1.0.0",
+    "react-router-dom": "^6.8.2",
+    "react-scripts": "5.0.1",
+    "yup": "^1.0.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
