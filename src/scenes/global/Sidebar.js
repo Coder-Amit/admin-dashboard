@@ -166,6 +166,13 @@ function ProSidebar() {
                             sx={{ m: "15px 0 5px 20px" }}
 
                         >Page</Typography>
+                        <Item
+                            title="Add User"
+                            icon={<PersonOutlineIcon />}
+                            to="/adduser"
+                            selected={selected}
+                            setSelected={setSelected}
+                        ></Item>
                     </Box>
                 </Menu>
             </Sidebar>

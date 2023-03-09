@@ -7,6 +7,7 @@ import Dashboard from './scenes/dashboard'
 import Team from './scenes/team'
 import Invoice from './scenes/invoice'
 import Contacts from './scenes/contacts'
+import Form from './scenes/form';
 
 
 
@@ -26,6 +27,7 @@ function App() {
               <Route path='/team' element={<Team />} />
               <Route path='/contacts' element={<Contacts />} />
               <Route path='/invoices' element={<Invoice />} />
+              <Route path='/adduser' element={<Form />} />
             </Routes>
           </main>
         </div>
