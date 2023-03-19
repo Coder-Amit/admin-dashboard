@@ -8,6 +8,11 @@ import Team from './scenes/team'
 import Invoice from './scenes/invoice'
 import Contacts from './scenes/contacts'
 import Form from './scenes/form';
+import Calendar from './scenes/calender';
+import Faq from './scenes/faq';
+import ChartBarChart from './scenes/BarChart';
+import ChartLineChart from './scenes/LineChart';
+import ChartPieChart from './scenes/PieChart';
 
 
 
@@ -28,6 +33,11 @@ function App() {
               <Route path='/contacts' element={<Contacts />} />
               <Route path='/invoices' element={<Invoice />} />
               <Route path='/adduser' element={<Form />} />
+              <Route path='/calendar' element={<Calendar />} />
+              <Route path='/faq' element={<Faq />} />
+              <Route path='/bar' element={<ChartBarChart />} />
+              <Route path='/line' element={<ChartLineChart />} />
+              <Route path='/pie' element={<ChartPieChart />} />
             </Routes>
           </main>
         </div>

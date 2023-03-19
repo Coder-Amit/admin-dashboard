@@ -173,6 +173,46 @@ function ProSidebar() {
                             selected={selected}
                             setSelected={setSelected}
                         ></Item>
+                        <Item
+                            title="Calendar"
+                            icon={<CalendarTodayOutlineIcon />}
+                            to="/calendar"
+                            selected={selected}
+                            setSelected={setSelected}
+                        ></Item>
+                        <Item
+                            title="FAQ Page"
+                            icon={<HelpOutlineIcon />}
+                            to="/faq"
+                            selected={selected}
+                            setSelected={setSelected}
+                        ></Item>
+                        <Typography
+                            color={colors.gray[300]}
+                            sx={{ m: "15px 0 5px 20px" }}
+
+                        >Visualization</Typography>
+                        <Item
+                            title="Bar Chart"
+                            icon={<BarChartOutlineIcon />}
+                            to="/bar"
+                            selected={selected}
+                            setSelected={setSelected}
+                        ></Item>
+                        <Item
+                            title="Line Chart"
+                            icon={<TimelineOutlinedIcon />}
+                            to="/line"
+                            selected={selected}
+                            setSelected={setSelected}
+                        ></Item>
+                        <Item
+                            title="Pi Chart"
+                            icon={<PieChartOutlineOutlineIcon />}
+                            to="/pie"
+                            selected={selected}
+                            setSelected={setSelected}
+                        ></Item>
                     </Box>
                 </Menu>
             </Sidebar>

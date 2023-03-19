@@ -4,6 +4,7 @@ import { Formik } from 'formik'
 import * as yup from 'yup'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import Header from '../../components/Header'
+import Modal from '@mui/material/Modal';
 
 const initialValues = {
     firstName: "",
@@ -12,6 +13,7 @@ const initialValues = {
     contact: "",
     Address1: "",
     Address2: "",
+    file: null
 }
 
 const phoneRegExp = /^((\+[1-9]{1,4}[ -]?)|(\([0-9]{2,3}\)[ -]?)|([0-9]{2,4})[ -]?)*?[0-9]{3,4}[ -]?[0-9]{3,4}$/;
@@ -23,6 +25,7 @@ const userSchema = yup.object().shape({
     contact: yup.string().matches(phoneRegExp, "Phone no is not valid").required("required"),
     Address1: yup.string().required("required"),
     Address2: yup.string().required("required"),
+    file: yup.mixed().required("Required")
 
 })
 
@@ -43,7 +46,7 @@ const Form = () => {
                 initialValues={initialValues}
                 validationSchema={userSchema}
             >
-                {({ values, errors, touched, handleBlur, handleChange, handleSubmit }) => {
+                {({ values, errors, touched, handleBlur, handleChange, handleSubmit, setFieldValue }) => {
                     return <form onSubmit={handleSubmit} >
                         <Box
                             display="grid"
@@ -137,6 +140,19 @@ const Form = () => {
                                 sx={{ gridColumn: "span 4" }}
 
                             />
+                            <TextField id="file"
+                                name="file"
+                                type="file"
+                                label="Avatar"
+                                onBlur={handleBlur}
+                                onChange={(event) => {
+                                    setFieldValue("file", event.currentTarget.files[0]);
+                                }}
+                                error={!!touched.file && !!errors.file}
+                                helperText={touched.file && errors.file}
+                                sx={{ gridColumn: "span 4" }}
+                            />
+                            <Thumb file={values.file} />
                         </Box>
                         <Box display="flex" justifyContent="end" mt="20px">
                             <Button type='submit' color='secondary' variant='contained' >Create user</Button>
@@ -149,3 +165,38 @@ const Form = () => {
 }
 
 export default Form
+
+
+class Thumb extends React.Component {
+    state = {
+        loading: false,
+        thumb: undefined,
+    };
+
+    componentWillReceiveProps(nextProps) {
+        if (!nextProps.file) { return; }
+
+        this.setState({ loading: true }, () => {
+            let reader = new FileReader();
+
+            reader.onloadend = () => {
+                this.setState({ loading: false, thumb: reader.result });
+            };
+
+            reader.readAsDataURL(nextProps.file);
+        });
+    }
+
+    render() {
+        const { file } = this.props;
+        const { loading, thumb } = this.state;
+
+        if (!file) { return null; }
+
+        if (loading) { return <p>loading...</p>; }
+
+        return (<img src={thumb}
+            alt={file.name}
+            width={300} />);
+    }
+}
