@@ -33,8 +33,11 @@ function LineChart({ isDashboard = false }) {
     return (
         <div>
             <Line
+
                 data={chartData}
                 options={{
+                    maintainAspectRatio: !isDashboard,
+
                     plugins: {
                         title: {
                             display: isDashboard ? false : true,
@@ -43,6 +46,7 @@ function LineChart({ isDashboard = false }) {
                         legend: {
                             display: isDashboard ? false : true
                         }
+
                     },
                 }}
 

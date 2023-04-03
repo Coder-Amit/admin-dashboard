@@ -49,6 +49,7 @@ const BarChart = ({ isDashboard = false }) => {
             <Bar
                 data={chartData}
                 options={{
+                    maintainAspectRatio: !isDashboard,
                     responsive: true,
                     plugins: {
                         title: {

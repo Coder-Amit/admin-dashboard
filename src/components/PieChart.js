@@ -1,35 +1,41 @@
-import React, { useState } from 'react'
-import { Pie } from 'react-chartjs-2'
-import { CategoryScale } from "chart.js";
 import Chart from "chart.js/auto";
-import { mockPieData } from '../data/mockData';
-
+import { CategoryScale } from "chart.js";
+import { useState } from "react";
+import React from "react";
+import { Pie } from "react-chartjs-2";
+import { mockPieData } from "../data/mockData"
 
 Chart.register(CategoryScale);
 
-
 export function PieChart({ isDashboard = false }) {
-
-    const data = {
+    const [chartData, setChartData] = useState({
         labels: mockPieData.map((label) => label.label),
-        datasets: [{
-            label: 'Programming',
-            data: mockPieData.map((data) => data.value),
-            backgroundColor: mockPieData.map((color) => color.color),
-            hoverOffset: 4,
-            borderWidth: 2,
-        }]
-    };
-
-    return <Pie options={{
-        plugins: {
-            title: {
-                display: isDashboard ? false : true,
-                text: "Language Remarks"
-            },
-            legend: {
-                display: isDashboard ? false : true
+        datasets: [
+            {
+                label: "Users Gained",
+                data: mockPieData.map((data) => data.value),
+                backgroundColor: mockPieData.map((color) => color.color),
+                borderColor: "black",
+                borderWidth: 0,
             }
-        },
-    }} data={data} />;
+        ]
+    });
+
+    return (
+        <Pie
+            data={chartData}
+            options={{
+                maintainAspectRatio: !isDashboard,
+                plugins: {
+                    title: {
+                        display: isDashboard ? false : true,
+                        text: "Languages per User"
+                    },
+                    legend: {
+                        display: isDashboard ? false : true
+                    }
+                },
+            }}
+        />
+    );
 }

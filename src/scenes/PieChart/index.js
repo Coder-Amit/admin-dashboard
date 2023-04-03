@@ -7,7 +7,7 @@ function ChartPieChart() {
     return (
         <Box m="20px">
             <Header title="Pie Chart" subTitle="Simple Pie Chart" />
-            <Box height="75vh">
+            <Box height="75vh" display="flex" justifyContent="center">
                 <PieChart />
             </Box>
         </Box>
