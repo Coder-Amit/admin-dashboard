@@ -31,28 +31,27 @@ function LineChart({ isDashboard = false }) {
         ]
     });
     return (
-        <div>
-            <Line
 
-                data={chartData}
-                options={{
-                    maintainAspectRatio: !isDashboard,
+        <Line
 
-                    plugins: {
-                        title: {
-                            display: isDashboard ? false : true,
-                            text: "Traffic Details"
-                        },
-                        legend: {
-                            display: isDashboard ? false : true
-                        }
+            data={chartData}
+            options={{
+                maintainAspectRatio: !isDashboard,
 
+                plugins: {
+                    title: {
+                        display: isDashboard ? false : true,
+                        text: "Traffic Details"
                     },
-                }}
+                    legend: {
+                        display: isDashboard ? false : true
+                    }
 
-            />
+                },
+            }}
 
-        </div>
+        />
+
     )
 }
 

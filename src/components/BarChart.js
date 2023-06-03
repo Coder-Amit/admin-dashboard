@@ -45,39 +45,38 @@ const BarChart = ({ isDashboard = false }) => {
 
 
     return (
-        <div>
-            <Bar
-                data={chartData}
-                options={{
-                    maintainAspectRatio: !isDashboard,
-                    responsive: true,
-                    plugins: {
-                        title: {
-                            display: isDashboard ? false : true,
-                            text: "Fast food consuption"
-                        },
-                        legend: {
-                            display: isDashboard ? false : true
-                        }
+        <Bar
+            data={chartData}
+            options={{
+                maintainAspectRatio: !isDashboard,
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: isDashboard ? false : true,
+                        text: "Fast food consuption"
                     },
-                    scales: {
-                        x: {
-                            stacked: true,
-
-                        },
-                        y: {
-                            stacked: true
-                        },
+                    legend: {
+                        display: isDashboard ? false : true
+                    }
+                },
+                scales: {
+                    x: {
+                        stacked: true,
 
                     },
-                    maintainAspectRatio: true
+                    y: {
+                        stacked: true
+                    },
+
+                },
+                maintainAspectRatio: true
 
 
-                }}
+            }}
 
-            />
+        />
 
-        </div>
+
     )
 }
 

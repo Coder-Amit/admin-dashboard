@@ -41,7 +41,7 @@ function ProSidebar() {
     const { collapseSidebar, toggleSidebar, collapsed, toggled, broken, rtl } = useProSidebar();
 
     return (
-        <Box height="100%" sx={{
+        <Box sx={{
             "& .ps-sidebar-container": {
                 background: `${colors.primary[400]} !important`
             },
@@ -52,6 +52,7 @@ function ProSidebar() {
             "& .ps-menu-button.active": {
                 color: "#6870fa !important"
             },
+
         }}
         >
             <Sidebar style={{ height: '100%' }}
